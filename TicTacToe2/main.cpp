@@ -128,47 +128,93 @@ int main()
 			}
 			turn1 = true;
 		}
+		
 	}
 	
 	return 0;
 	
 
-}/*
-int checkWinner()
-{
-	if(table[0][0] == 'X' && table[0][1] == 'X' && table[0][2] == 'X')
-	{
-
-	}
-	if(table[1][0] == 'X' && table[1][1] == 'X' && table[1][2] == 'X')
-	{
-
-	}
-	if(table[2][0] == 'X' && table[2][1] == 'X' && table[2][2] == 'X')
-	{
-
-	}
-
-	if(table[0][0] == 'X' && table[1][0] == 'X' && table[2][0] == 'X')
-	{
-
-	}
-	if(table[0][1] == 'X' && table[1][1] == 'X' && table[2][1] == 'X')
-	{
-
-	}
-	if(table[0][2] == 'X' && table[0][2] == 'X' && table[2][2] == 'X')
-	{
-
-	}
-
-	if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X')
-	{
-
-	}
-	if(table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X')
-	{
-
-	}
 }
-*/
+	int checkWinner()
+	{
+		if(table[0][0] == 'X' && table[0][1] == 'X' && table[0][2] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+
+		if(table[1][0] == 'X' && table[1][1] == 'X' && table[1][2] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+		if(table[2][0] == 'X' && table[2][1] == 'X' && table[2][2] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+
+		if(table[0][0] == 'X' && table[1][0] == 'X' && table[2][0] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+
+		if(table[0][1] == 'X' && table[1][1] == 'X' && table[2][1] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+
+		if(table[0][2] == 'X' && table[0][2] == 'X' && table[2][2] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}	
+
+		if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+
+		if(table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X')
+		{
+			std::cout << "Player X is the Winner!" << std::endl;
+		}
+
+		/* ------------------------------------------------------------- */
+		/* ------------------------------------------------------------- */
+
+		if (table[0][0] == 'O' && table[0][1] == 'O' && table[0][2] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+
+		if (table[1][0] == 'O' && table[1][1] == 'O' && table[1][2] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+		if (table[2][0] == 'O' && table[2][1] == 'O' && table[2][2] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+
+		if (table[0][0] == 'O' && table[1][0] == 'O' && table[2][0] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+
+		if (table[0][1] == 'O' && table[1][1] == 'O' && table[2][1] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+
+		if (table[0][2] == 'O' && table[0][2] == 'O' && table[2][2] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+
+		if (table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+
+		if (table[2][0] == 'O' && table[1][1] == 'O' && table[0][2] == 'O')
+		{
+			std::cout << "Player O is the Winner!" << std::endl;
+		}
+	}
