@@ -2,6 +2,10 @@
 #include"TicUtils.h"
 using namespace std;
 
+int winPicker;
+
+int checkWinner();
+
 /* Table display */
 char table[3][3] =
 {
@@ -31,6 +35,9 @@ int main()
 
 	bool turn1 = true;
 
+	int turnAmount = 0;
+
+
 	while (true)
 	{
 		printTable();
@@ -40,6 +47,7 @@ int main()
 		char player2 = 'O';
 		int playerChoice = -1;
 
+		turnAmount++;
 
 		if (turn1 == true)
 		{
@@ -128,93 +136,137 @@ int main()
 			}
 			turn1 = true;
 		}
-		
+		if (turnAmount <= 8)
+		{
+			winPicker = checkWinner();
+
+			if (winPicker == 1)
+			{
+				cout << "\nPlayer " << player1 << " Wins!\n\n";
+			}
+			else if (winPicker == 0)
+			{
+				cout << "\nPlayer " << player2 << " Wins!\n\n";
+			}
+		}
+		if (turnAmount == 9)
+		{
+			winPicker = checkWinner();
+
+			if (winPicker == 1)
+			{
+				cout << "\nPlayer " << player1 << " Wins!\n\n";
+			}
+			else if (winPicker == 0)
+			{
+				cout << "\nPlayer " << player2 << " Wins!\n\n";
+			}
+			else
+			{
+				cout << "\nDraw!\n\n";
+			}
+		}	
 	}
 	
 	return 0;
 	
 
 }
-	int checkWinner()
+
+//-1 is no end yet
+// 0 is player 2's win
+// 1 is player 1's win
+// 2 is draw
+
+int checkWinner()
+{
+	int win = -1;
+
+	if(table[0][0] == 'X' && table[0][1] == 'X' && table[0][2] == 'X')
 	{
-		if(table[0][0] == 'X' && table[0][1] == 'X' && table[0][2] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-
-		if(table[1][0] == 'X' && table[1][1] == 'X' && table[1][2] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-		if(table[2][0] == 'X' && table[2][1] == 'X' && table[2][2] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-
-		if(table[0][0] == 'X' && table[1][0] == 'X' && table[2][0] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-
-		if(table[0][1] == 'X' && table[1][1] == 'X' && table[2][1] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-
-		if(table[0][2] == 'X' && table[0][2] == 'X' && table[2][2] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}	
-
-		if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-
-		if(table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X')
-		{
-			std::cout << "Player X is the Winner!" << std::endl;
-		}
-
-		/* ------------------------------------------------------------- */
-		/* ------------------------------------------------------------- */
-
-		if (table[0][0] == 'O' && table[0][1] == 'O' && table[0][2] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-
-		if (table[1][0] == 'O' && table[1][1] == 'O' && table[1][2] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-		if (table[2][0] == 'O' && table[2][1] == 'O' && table[2][2] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-
-		if (table[0][0] == 'O' && table[1][0] == 'O' && table[2][0] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-
-		if (table[0][1] == 'O' && table[1][1] == 'O' && table[2][1] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-
-		if (table[0][2] == 'O' && table[0][2] == 'O' && table[2][2] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-
-		if (table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
-
-		if (table[2][0] == 'O' && table[1][1] == 'O' && table[0][2] == 'O')
-		{
-			std::cout << "Player O is the Winner!" << std::endl;
-		}
+		win = 1;
 	}
+
+	if(table[1][0] == 'X' && table[1][1] == 'X' && table[1][2] == 'X')
+	{
+		win = 1;
+	}
+	if(table[2][0] == 'X' && table[2][1] == 'X' && table[2][2] == 'X')
+	{
+		win = 1;
+	}
+
+	if(table[0][0] == 'X' && table[1][0] == 'X' && table[2][0] == 'X')
+	{
+		win = 1;
+	}
+
+	if(table[0][1] == 'X' && table[1][1] == 'X' && table[2][1] == 'X')
+	{
+		win = 1;
+	}
+
+	if(table[0][2] == 'X' && table[0][2] == 'X' && table[2][2] == 'X')
+	{
+		win = 1;
+	}	
+
+	if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X')
+	{
+		win = 1;
+	}
+
+	if(table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X')
+	{
+		win = 1;
+	}
+
+	/* ------------------------------------------------------------- */
+	/* ------------------------------------------------------------- */
+
+	if (table[0][0] == 'O' && table[0][1] == 'O' && table[0][2] == 'O')
+	{
+		win = 0;
+	}
+
+	if (table[1][0] == 'O' && table[1][1] == 'O' && table[1][2] == 'O')
+	{
+		win = 0;
+	}
+	if (table[2][0] == 'O' && table[2][1] == 'O' && table[2][2] == 'O')
+	{
+		win = 0;
+	}
+
+	if (table[0][0] == 'O' && table[1][0] == 'O' && table[2][0] == 'O')
+	{
+		win = 0;
+	}
+
+	if (table[0][1] == 'O' && table[1][1] == 'O' && table[2][1] == 'O')
+	{
+		win = 0;
+	}
+
+	if (table[0][2] == 'O' && table[0][2] == 'O' && table[2][2] == 'O')
+	{
+		win = 0;
+	}
+
+	if (table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O')
+	{
+		win = 0;
+	}
+
+	if (table[2][0] == 'O' && table[1][1] == 'O' && table[0][2] == 'O')
+	{
+		win = 0;
+	}
+	
+	// determine if it's a draw
+	// if there was no clear winner
+	// check if any of the cells are empty
+	// if none are empty, then it was a draw
+
+	return win;
+}
