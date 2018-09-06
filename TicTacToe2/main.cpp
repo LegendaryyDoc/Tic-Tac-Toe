@@ -26,6 +26,8 @@ void printTable()
 	}
 }
 
+
+
 int main()
 {
 	/* Intro */
@@ -98,9 +100,17 @@ int main()
 			cout << "Choose a number corresponding with the tile you want!\n";
 			cin >> playerChoice;
 
-			if (playerChoice == 0)
+			if (playerChoice == 0) // Not sure if this will work 
 			{
-				table[0][0] = player2;
+				if (table[0][0] == 'X') //
+				{
+					std::cout << "Try again" << std::endl; //
+					turn1 == false; //
+				}
+				else
+				{
+					table[0][0] = player2;
+				}
 			}
 			if (playerChoice == 1)
 			{
@@ -263,10 +273,6 @@ int checkWinner()
 		win = 0;
 	}
 	
-	// determine if it's a draw
-	// if there was no clear winner
-	// check if any of the cells are empty
-	// if none are empty, then it was a draw
 
 	return win;
 }
