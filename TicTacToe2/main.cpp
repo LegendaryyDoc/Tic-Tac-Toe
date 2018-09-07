@@ -42,7 +42,7 @@ int main()
 
 	while (true)
 	{
-		printTable();
+		
 
 		/* Player input */
 		char player1 = 'X';
@@ -53,140 +53,281 @@ int main()
 
 		if (turn1 == true)
 		{
+			printTable();
+			turn1 = false;
 			cout << "Choose a number corresponding with the tile you want!\n";
+			cout << "\n";
 			cin >> playerChoice;
 
 			if (playerChoice == 0)
 			{
-				table[0][0] = player1;
-			}
-			if (playerChoice == 1)
-			{
-				table[0][1] = player1;
-			}
-			if (playerChoice == 2)
-			{
-				table[0][2] = player1;
-			}
-			if (playerChoice == 3)
-			{
-				table[1][0] = player1;
-			}
-			if (playerChoice == 4)
-			{
-				table[1][1] = player1;
-			}
-			if (playerChoice == 5)
-			{
-				table[1][2] = player1;
-			}
-			if (playerChoice == 6)
-			{
-				table[2][0] = player1;
-			}
-			if (playerChoice == 7)
-			{
-				table[2][1] = player1;
-			}
-			if (playerChoice == 8)
-			{
-				table[2][2] = player1;
-			}
-
-			turn1 = false;
-		}
-		else if (turn1 == false)
-		{
-			cout << "Choose a number corresponding with the tile you want!\n";
-			cin >> playerChoice;
-
-			if (playerChoice == 0) // Not sure if this will work 
-			{
-				if (table[0][0] == 'X') //
+				if (table[0][0] == 'O')
 				{
-					std::cout << "Try again" << std::endl; //
-					turn1 == false; //
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
 				}
 				else
 				{
-					table[0][0] = player2;
+					table[0][0] = player1;
 				}
 			}
 			if (playerChoice == 1)
 			{
-				table[0][1] = player2;
+				if (table[0][1] == 'O')
+				{
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
+				}
+				else
+				{
+					table[0][1] = player1;
+				}
 			}
 			if (playerChoice == 2)
 			{
-				table[0][2] = player2;
+				if (table[0][2] == 'O')
+				{
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
+				}
+				else
+				{
+					table[0][2] = player1;
+				}
 			}
 			if (playerChoice == 3)
 			{
-				table[1][0] = player2;
+				if (table[1][0] == 'O')
+				{
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
+				}
+				else
+				{
+					table[1][0] = player1;
+				}
 			}
 			if (playerChoice == 4)
 			{
-				table[1][1] = player2;
+				if (table[1][1] == 'O')
+				{
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
+				}
+				else
+				{
+					table[1][1] = player1;
+				}
 			}
 			if (playerChoice == 5)
 			{
-				table[1][2] = player2;
+				if (table[1][2] == 'O')
+				{
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
+				}
+				else
+				{
+					table[1][2] = player1;
+				}
 			}
 			if (playerChoice == 6)
 			{
-				table[2][0] = player2;
+				if (table[2][0] == 'O')
+				{
+					std::cout << "\nTry again\n" << std::endl;
+					turn1 = true;
+				}
+				else
+				{
+					table[2][0] = player1;
+				}
+				if (playerChoice == 7)
+				{
+					if (table[2][1] == 'O')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = true;
+					}
+					else
+					{
+						table[2][1] = player1;
+					}
+				}
+				if (playerChoice == 8)
+				{
+					if (table[2][2] == 'O')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = true;
+					}
+					else
+					{
+						table[2][2] = player1;
+					}
+				}
 			}
-			if (playerChoice == 7)
+			/*---------------------------------------------------------------------*/
+			/*---------------------------------------------------------------------*/
+			else if (turn1 == false)
 			{
-				table[2][1] = player2;
-			}
-			if (playerChoice == 8)
-			{
-				table[2][2] = player2;
-			}
-			turn1 = true;
-		}
-		if (turnAmount <= 8)
-		{
-			winPicker = checkWinner();
+				printTable();
+				turn1 = true;
+				cout << "Choose a number corresponding with the tile you want!\n";
+				cout << "\n";
+				cin >> playerChoice;
 
-			if (winPicker == 1)
-			{
-				cout << "\nPlayer " << player1 << " Wins!\n\n";
+				if (playerChoice == 0)
+				{
+					if (table[0][0] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[0][0] = player2;
+					}
+				}
+				if (playerChoice == 1)
+				{
+					if (table[0][1] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[0][1] = player2;
+					}
+				}
+				if (playerChoice == 2)
+				{
+					if (table[0][2] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[0][2] = player2;
+					}
+				}
+				if (playerChoice == 3)
+				{
+					if (table[1][0] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[1][0] = player2;
+					}
+				}
+				if (playerChoice == 4)
+				{
+					if (table[1][1] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[1][1] = player2;
+					}
+				}
+				if (playerChoice == 5)
+				{
+					if (table[1][2] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[1][2] = player2;
+					}
+				}
+				if (playerChoice == 6)
+				{
+					if (table[2][0] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[2][0] = player2;
+					}
+				}
+				if (playerChoice == 7)
+				{
+					if (table[2][1] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[2][1] = player2;
+					}
+				}
+				if (playerChoice == 8)
+				{
+					if (table[2][2] == 'X')
+					{
+						std::cout << "\nTry again\n" << std::endl;
+						turn1 = false;
+					}
+					else
+					{
+						table[2][2] = player2;
+					}
+				}
+
 			}
-			else if (winPicker == 0)
+			if (turnAmount <= 8)
 			{
-				cout << "\nPlayer " << player2 << " Wins!\n\n";
+				winPicker = checkWinner();
+
+				if (winPicker == 1)
+				{
+					printTable();
+					cout << "\nPlayer " << player1 << " Wins!\n\n";
+				}
+				else if (winPicker == 0)
+				{
+					printTable();
+					cout << "\nPlayer " << player2 << " Wins!\n\n";
+				}
+			}
+			if (turnAmount == 9)
+			{
+				winPicker = checkWinner();
+
+				if (winPicker == 1)
+				{
+					printTable();
+					cout << "\nPlayer " << player1 << " Wins!\n\n";
+				}
+				else if (winPicker == 0)
+				{
+					printTable();
+					cout << "\nPlayer " << player2 << " Wins!\n\n";
+				}
+				else
+				{
+					printTable();
+					cout << "\nDraw!\n\n";
+				}
 			}
 		}
-		if (turnAmount == 9)
-		{
-			winPicker = checkWinner();
-
-			if (winPicker == 1)
-			{
-				cout << "\nPlayer " << player1 << " Wins!\n\n";
-			}
-			else if (winPicker == 0)
-			{
-				cout << "\nPlayer " << player2 << " Wins!\n\n";
-			}
-			else
-			{
-				cout << "\nDraw!\n\n";
-			}
-		}	
+		
 	}
-	
-	return 0;
-	
-
+	return -1;
 }
 
-//-1 is no end yet
-// 0 is player 2's win
-// 1 is player 1's win
-// 2 is draw
 
 int checkWinner()
 {
