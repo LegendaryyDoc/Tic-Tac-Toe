@@ -295,12 +295,17 @@ int main()
 				{
 					printTable();
 					cout << "\nPlayer " << player1 << " Wins!\n\n";
+					system("Pause");
+					return 0;
 				}
 				else if (winPicker == 0)
 				{
 					printTable();
 					cout << "\nPlayer " << player2 << " Wins!\n\n";
+					system("Pause");
+					return 0;
 				}
+				
 			}
 			if (turnAmount == 9)
 			{
@@ -310,21 +315,27 @@ int main()
 				{
 					printTable();
 					cout << "\nPlayer " << player1 << " Wins!\n\n";
+					system("Pause");
+					return 0;
 				}
 				else if (winPicker == 0)
 				{
 					printTable();
 					cout << "\nPlayer " << player2 << " Wins!\n\n";
+					system("Pause");
+					return 0;
 				}
 				else
 				{
 					printTable();
 					cout << "\nDraw!\n\n";
+					
 				}
 			}
 		}
 		
 	}
+
 	return -1;
 }
 
