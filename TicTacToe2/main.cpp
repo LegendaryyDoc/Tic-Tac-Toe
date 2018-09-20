@@ -2,9 +2,8 @@
 #include"TicUtils.h"
 using namespace std;
 
-int winPicker;
-
-int checkWinner();
+int displayBanner(bool winner, char myMark);
+bool checkWinner(char myMark);
 
 /* Table display */
 char table[3][3] =
@@ -78,97 +77,105 @@ int main()
 		}
 		// Now we can place the mark
 		table[tmp.y][tmp.x] = mark;
-		//checkWinner();
+		inPlay = checkWinner(mark);
 		player = !player;
 	}
 	return 0;
 }
 
-int checkWinner()
+bool checkWinner(char myMark)
 {
-	int win = -1;
-
-	if(table[0][0] == 'X' && table[0][1] == 'X' && table[0][2] == 'X')
+	bool winner = false;
+	for (int y = 0; y < 3 && !winner; y++)
 	{
-		win = 1;
+		winner = true;
+		for (int x = 0; x < 3 && winner; x++)
+		{
+			if (table[y][x] != myMark)
+			{
+				winner = false;
+			}
+		}
+	}
+	if (winner)
+	{
+		displayBanner(winner, myMark);
+		return false;
 	}
 
-	if(table[1][0] == 'X' && table[1][1] == 'X' && table[1][2] == 'X')
+	for (int x = 0; x < 3 && !winner; x++)
 	{
-		win = 1;
+		winner = true;
+		for (int y = 0; y < 3 && winner; y++)
+		{
+			if (table[y][x] != myMark)
+			{
+				winner = false;
+			}
+		}
 	}
-	if(table[2][0] == 'X' && table[2][1] == 'X' && table[2][2] == 'X')
+	if(winner)
 	{
-		win = 1;
-	}
-
-	if(table[0][0] == 'X' && table[1][0] == 'X' && table[2][0] == 'X')
-	{
-		win = 1;
-	}
-
-	if(table[0][1] == 'X' && table[1][1] == 'X' && table[2][1] == 'X')
-	{
-		win = 1;
+		displayBanner(winner, myMark);
+		return false;
 	}
 
-	if(table[0][2] == 'X' && table[0][2] == 'X' && table[2][2] == 'X')
+	winner = true;
+	for (int IDX = 0; IDX < 3; IDX++)
 	{
-		win = 1;
-	}	
-
-	if(table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X')
-	{
-		win = 1;
+		
+		if (table[IDX][IDX] != myMark)
+		{
+			winner = false;
+		}
 	}
 
-	if(table[2][0] == 'X' && table[1][1] == 'X' && table[0][2] == 'X')
+	winner = true;
+	for (int IDX = 0; IDX < 3; IDX++)
 	{
-		win = 1;
+		if (table[2 - IDX][IDX] != myMark)
+		{
+			winner = false;
+		}
+	}
+	if (winner)
+	{
+		displayBanner(winner, myMark);
+		return false;
 	}
 
-	/* ------------------------------------------------------------- */
-	/* ------------------------------------------------------------- */
-
-	if (table[0][0] == 'O' && table[0][1] == 'O' && table[0][2] == 'O')
+	bool draw = true;
+	for (int y = 0; y < 3; y++)
 	{
-		win = 0;
+		for (int x = 0; x < 3; x++)
+		{
+			if (table[y][x] != 'X' && table[y][x] != 'O')
+			{
+				draw = false;
+			}
+		}
 	}
-
-	if (table[1][0] == 'O' && table[1][1] == 'O' && table[1][2] == 'O')
+	if (draw)
 	{
-		win = 0;
+		displayBanner(!draw, myMark);
+		return false;
 	}
-	if (table[2][0] == 'O' && table[2][1] == 'O' && table[2][2] == 'O')
-	{
-		win = 0;
-	}
-
-	if (table[0][0] == 'O' && table[1][0] == 'O' && table[2][0] == 'O')
-	{
-		win = 0;
-	}
-
-	if (table[0][1] == 'O' && table[1][1] == 'O' && table[2][1] == 'O')
-	{
-		win = 0;
-	}
-
-	if (table[0][2] == 'O' && table[0][2] == 'O' && table[2][2] == 'O')
-	{
-		win = 0;
-	}
-
-	if (table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O')
-	{
-		win = 0;
-	}
-
-	if (table[2][0] == 'O' && table[1][1] == 'O' && table[0][2] == 'O')
-	{
-		win = 0;
-	}
-	
-
-	return win;
+	return true;
 }
+
+int displayBanner(bool winner, char myMark)
+{
+	if (winner == true)
+	{
+		cout << "Congrats player " << myMark << " has won!" << endl;
+		system("pause");
+		return 0;
+	}
+	else
+	{
+		cout << "The game was a draw!" << endl;
+		system("pause");
+		return 0;
+	}
+}
+
