@@ -1,8 +1,9 @@
 #pragma once
 
-void displayBoard(int ROWS, int COLS);
-
-struct player1
+struct cell
 {
-
+	int x; // row
+	int y; // col
 };
+
+cell translateCell(int input);
