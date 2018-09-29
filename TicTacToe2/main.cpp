@@ -129,6 +129,11 @@ bool checkWinner(char myMark)
 			winner = false;
 		}
 	}
+	if (winner)
+	{
+		displayBanner(winner, myMark);
+		return false;
+	}
 
 	winner = true;
 	for (int IDX = 0; IDX < 3; IDX++)
@@ -138,6 +143,7 @@ bool checkWinner(char myMark)
 			winner = false;
 		}
 	}
+
 	if (winner)
 	{
 		displayBanner(winner, myMark);
